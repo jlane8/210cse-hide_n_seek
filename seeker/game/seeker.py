@@ -1,5 +1,8 @@
-import random
-# TODO: Implement the Seeker class as follows...
+"""
+File: seeker.py
+Author: Jerry Lane
+Purpose: Class to represent the seeker in a game of hide and seek.
+"""
 
 # 1) Add the class declaration. Use the following class comment.
 class Seeker:
@@ -10,7 +13,7 @@ class Seeker:
     Attributes:
         location (int): The location of the Seeker (1-1000).
     """
-    location = random.randint(1, 1000)
+
 
     # 2) Create the class constructor. Use the following method comment.
     def __init__(self):
@@ -19,7 +22,8 @@ class Seeker:
         Args:
             self (Seeker): An instance of Seeker.
         """
-        self.location = Seeker.location
+        # set initial location in the middle of the range
+        self.location = 499 
         
 
     # 3) Create the get_location(self) method. Use the following method comment.
