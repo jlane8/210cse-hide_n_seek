@@ -1,16 +1,25 @@
-
+"""
+File: hider.py
+Authors: Matt Manley (manleym@byui.edu)
+         Scott Burton (burtons@byui.edu)
+Purpose: The Hider class represents the hider in a game of hide and seek.
+"""
+# import random module to access random number generation
 import random
 
+# Hider class
 class Hider:
     """The person hiding from the Seeker. 
     
-    The responsibility of Hider is to keep track of its location and distance from the seeker. 
+    The responsibility of Hider is to keep track of its location and 
+    distance from the seeker. 
     
     Attributes:
         _location (int): The location of the hider (1-1000).
         _distance (List[int]): The distance from the seeker.
     """
 
+    # constructor for an instantiation of a Hider
     def __init__(self):
         """Constructs a new Hider.
 
@@ -19,8 +28,11 @@ class Hider:
         """
         self._location = random.randint(1, 1000)
         self._distance = [0, 0] # start with two so get_hint always works
+        
+        # variable to track how many guesses are made by seeker player
         self.attempts = 0
     
+    # get hint of whether seeker is getting closer or farther away
     def get_hint(self):
         """Gets a hint for the seeker.
 
@@ -30,9 +42,14 @@ class Hider:
         Returns:
             string: A hint for the seeker.
         """
+        # update number of guesses
         self.attempts += 1
+
+        # generate hints
         hint = "(-.-) Nap time."
         if self._distance[-1] == 0:
+            
+            # once found, tell player how many attempts were made
             print(f"(;.;) It only took you {self.attempts} ", end = "")
             if self.attempts == 1:
                 print("guess, but ", end="")
@@ -45,7 +62,7 @@ class Hider:
             hint = "(>.<) Getting warmer!"
         return hint
         
-
+    # method to determine if seeker has found the hider
     def is_found(self):
         """Whether or not the hider has been found.
 
@@ -57,6 +74,7 @@ class Hider:
         """
         return (self._distance[-1] == 0)
         
+    # method to see how close the seeker currently is
     def watch_seeker(self, seeker):
         """Watches the seeker by keeping track of how far away it is.
 
