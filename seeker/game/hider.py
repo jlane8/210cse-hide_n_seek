@@ -63,6 +63,5 @@ class Hider:
         Args:
             self (Hider): An instance of Hider.
         """
-        print(f"Your location is: {seeker.get_location()}")
         distance = abs(self._location - seeker.get_location())
         self._distance.append(distance)
