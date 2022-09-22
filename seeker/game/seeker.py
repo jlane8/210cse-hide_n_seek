@@ -22,8 +22,7 @@ class Seeker:
         Args:
             self (Seeker): An instance of Seeker.
         """
-        # set initial location in the middle of the range
-        self.location = 499 
+        pass
         
 
     # 3) Create the get_location(self) method. Use the following method comment.
