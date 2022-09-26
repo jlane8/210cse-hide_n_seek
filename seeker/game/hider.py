@@ -28,9 +28,6 @@ class Hider:
         """
         self._location = random.randint(1, 1000)
         self._distance = [0, 0] # start with two so get_hint always works
-        
-        # variable to track how many guesses are made by seeker player
-        self.attempts = 0
     
     # get hint of whether seeker is getting closer or farther away
     def get_hint(self):
@@ -42,20 +39,11 @@ class Hider:
         Returns:
             string: A hint for the seeker.
         """
-        # update number of guesses
-        self.attempts += 1
 
         # generate hints
         hint = "(-.-) Nap time."
         if self._distance[-1] == 0:
-            
-            # once found, tell player how many attempts were made
-            print(f"(;.;) It only took you {self.attempts} ", end = "")
-            if self.attempts == 1:
-                print("guess, but ", end="")
-            else:
-                print("guesses, but ", end="")
-            hint = "you found me!\n"
+            hint = f"(;.;) You found me! It took {len(self._distance) - 2} guesses."
         elif self._distance[-1] > self._distance[-2]:
             hint = "(^.^) Getting colder!"
         elif self._distance[-1] < self._distance[-2]:
