@@ -43,7 +43,7 @@ class Hider:
         # generate hints
         hint = "(-.-) Nap time."
         if self._distance[-1] == 0:
-            hint = f"(;.;) You found me! It took {len(self._distance) - 2} guesses."
+            hint = f"(;.;) You found me! It took {len(self._distance) - 2} guesses.\n"
         elif self._distance[-1] > self._distance[-2]:
             hint = "(^.^) Getting colder!"
         elif self._distance[-1] < self._distance[-2]:
